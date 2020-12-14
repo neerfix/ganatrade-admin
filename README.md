@@ -1,19 +1,19 @@
-![GitHub package.json version](https://img.shields.io/github/package-json/v/PyxyApp/Administration)
-![GitHub repo size](https://img.shields.io/github/repo-size/PyxyApp/Administration)
-[![Maintainability](https://api.codeclimate.com/v1/badges/483bcc7a6f76ad873acc/maintainability)](https://codeclimate.com/github/PyxyApp/Administration/maintainability)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ganatrade/admin)
+![GitHub repo size](https://img.shields.io/github/repo-size/ganatrade/admin)
 
-# Pyxy - Administration / Back Office
+# Ganatrade - Administration / Back Office
 
 ## Link
-- Dev - https://pyxy.surge.sh
-- Prod - https://acp.pyxy.space
+- Dev - https://beta.acp.ganatrade.xyz
+- Prod - https://acp.ganatrade.xyz
 
 ## Présentation
 
-Le back office de Pyxy à été réalisé en ReactJs. 
+Le back office de Ganatrade à été réalisé en ReactJs. 
 Nous avons choisi React pour le Back Office puisque c'est un framework assez fluide et facile à prendre en main. 
 C'est également l'un des meilleurs derrière VuesJs, donc il comporte une grande communauté pour répondre aux questions.
 Ayant plus de connaissance et de pratique en ReactJs qu'en VueJs, le choix s'est donc porté sur ReactJs.
+
 ## Architecture du site
 
     📦src
