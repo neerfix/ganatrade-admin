@@ -30,4 +30,4 @@ jobs:
           SSH_HOST: ${{ secrets.HOST }}
 
       - name: Check out the source
-        run: ssh staging 'cd /srv/ganatrade/www/ && sudo git fetch && sudo git reset --hard origin/master && make install'
+        run: ssh staging 'cd /srv/ganatrade/admin/ && sudo git fetch && sudo git reset --hard origin/master && make install'
