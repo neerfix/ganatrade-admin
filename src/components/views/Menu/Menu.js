@@ -26,8 +26,10 @@ export default class Menu extends Component {
                         </NavLink>
                         <h3>Data</h3>
                         <ListGroupItem to={'/list/users'} dataType={"Users"} icon={faUser}/>
-                        <ListGroupItem to={'/list/categories'} dataType={"Trades"} icon={faFolder}/>
-                        <ListGroupItem to={'/list/lists'} dataType={"Comments"} icon={faClipboard}/>
+                        <ListGroupItem to={'/list/categories'} dataType={"Categories"} icon={faUser}/>
+                        <ListGroupItem to={'/list/reviews'} dataType={"Reviews"} icon={faUser}/>
+                        <ListGroupItem to={'/list/trades'} dataType={"Trades"} icon={faFolder}/>
+                        <ListGroupItem to={'/list/offers'} dataType={"Offers"} icon={faClipboard}/>
                         <h3>Moderation</h3>
                         <ListGroupItem to={'/alert'} dataType={"Reporting"} icon={faFlag}/>
                         <ListGroupItem to={'/alert'} dataType={"Ban"} icon={faFlag}/>

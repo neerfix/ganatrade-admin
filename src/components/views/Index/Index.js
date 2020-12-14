@@ -19,8 +19,8 @@ class Index extends Component {
                         Trafic
                     </Card.Header>
                     <Card.Body>
-                        <Card.Subtitle className="mb-2 text-muted">Current Month</Card.Subtitle>
-                        Attitude at the alpha quadrant that is when remarkable creatures yell. Modern suns, to the parallel universe. Transporters go from beauties like proud transformators. Advice at the solar system was the death of resistance, deserved to a most unusual queen.
+                        <Card.Subtitle className="mb-2 text-muted">Hello</Card.Subtitle>
+                         Ce texte est inutile
                     </Card.Body>
                 </Card>
                 <WeekStatistics />
