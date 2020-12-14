@@ -1,0 +1,19 @@
+.navbar{
+  background-color: #ffffff;
+  border-bottom: 1px solid #c8ced3;
+  a:hover{
+    color: darkcyan;
+  }
+  .notifications{
+    margin: -5px;
+    position: absolute;
+  }
+  .dropdown-toggle::after{
+    display: none;
+  }
+  .dropdown{
+    .dropdown-menu{
+      transform: translate3d(-110px, 0px, 0px) !important;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+
+.btn-success, .badge-success{
+  background-color: $success-color !important;
+  border-color: $success-color !important;
+}
+.btn-danger, .badge-danger{
+  background-color: $danger-color !important;
+  border-color: $danger-color !important;
+}
+.btn-primary, .badge-primary{
+  background-color: $primary-color !important;
+  border-color: $primary-color !important;
+}
+.btn-warning, .badge-warning{
+  background-color: $warning-color !important;
+  border-color: $warning-color !important;
+}
+.color-logo{
+  color: $logo-color
+}
+.color-danger{
+  color: $danger-color
+}
+.color-success{
+  color: $success-color;
+}
+.color-primary{
+  color: $primary-color;
+}
+.color-warning{
+  color: $warning-color;
+}

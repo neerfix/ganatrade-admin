@@ -1,0 +1,32 @@
+.card{
+  .card-subtitle{
+    color: #73818f !important;
+    font-size: 80%;
+    font-weight: 400;
+  }
+}
+
+.smallGraph{
+  border-radius: 5px !important;
+  padding: 0.5em 1em;
+  border: 0 !important;
+  height: 50px;
+  .recharts-default-tooltip{
+    color: white;
+    background-color: rgba(53, 53, 53, 0.8) !important;
+    border-radius: 5px;
+    border:none;
+  }
+  &.newUsers{
+    border-left: $newUsers-color 5px solid !important;
+  }
+  &.activeUsers{
+    border-left: $activeUsers-color 5px solid !important;
+  }
+  &.newLists{
+    border-left: $listCreated-color 5px solid !important;
+  }
+  &.newTasks{
+    border-left: $taskCreated-color 5px solid !important;
+  }
+}

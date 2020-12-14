@@ -1,0 +1,33 @@
+main.page-login{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: url("../../img/bg_login.gif") no-repeat center;
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-color:
+          #c3c3c3;
+  .form-login{
+    opacity: 0.8;
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: auto;
+    background-color: rgba(36, 36, 36, 1);
+    color: white;
+    padding: 1em;
+    border-radius: 4px;
+    .form-control{
+      background: url("../../img/bg_login.gif") no-repeat;
+      background-size: 100vw !important;
+      background-position-x: 50%;
+      color: white;
+      &#formBasicEmail{
+        background-position-y: calc(50% + 1em + 93.2px);
+      }
+      &#formBasicPassword{
+        background-position-y: calc(50% + 1em + 93.2px + 70px);
+      }
+    }
+  }
+}
