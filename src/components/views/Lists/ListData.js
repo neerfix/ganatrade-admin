@@ -72,6 +72,11 @@ export default class ListData extends Component {
             lists: <Lists data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
         };
 
+        if(!listData[this.state.dataType]){
+            let newDataType = this.state.dataType.split("/");
+            this.setState({dataType: newDataType[2]})
+        }
+
         return (
             <div className="content col-10 mt-3">
                 <Card>
