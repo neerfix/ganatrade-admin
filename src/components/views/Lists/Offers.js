@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Table} from "react-bootstrap";
 import ButtonGroupAction from "./ButtonGroupAction";
 import getToken from "../../../functions/getToken";
+import {Link} from "react-router-dom";
 const token = getToken();
 
 export default class Offers extends Component {
@@ -22,6 +23,7 @@ export default class Offers extends Component {
             <thead>
             <tr>
                 <th>#</th>
+                <th>Trades</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Product Name</th>
@@ -34,6 +36,11 @@ export default class Offers extends Component {
             {this.state.data.slice(this.props.startRange, this.props.endRange).map( (offers, index) => {
                 return <tr key={index}>
                     <td>{index+1}</td>
+                    <td>
+                        <Link to={'/list/users/' + offers.id + '/trades'}>
+                            <button className={"btn-success btn-sm"}> View trades </button>
+                        </Link>
+                    </td>
                     <td>{offers.title}</td>
                     <td>{offers.description}</td>
                     <td>{offers.product && offers.product.name}</td>
