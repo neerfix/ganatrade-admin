@@ -1,10 +1,7 @@
 # Script to install prod
 install:
 	npm install
-
-# Start the prod server
-start:
-	open http://localhost:8080 && nodemon server.js
+	yarn build
 
 # from develop to master
 release:
