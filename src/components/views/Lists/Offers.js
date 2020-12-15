@@ -22,14 +22,11 @@ export default class Offers extends Component {
             <thead>
             <tr>
                 <th>#</th>
-                <th>ID</th>
                 <th>Title</th>
-                <th>Category</th>
                 <th>Description</th>
                 <th>Product Name</th>
                 <th>Product Condition</th>
                 <th>Tags</th>
-                <th>User ID</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -37,17 +34,16 @@ export default class Offers extends Component {
             {this.state.data.slice(this.props.startRange, this.props.endRange).map( (offers, index) => {
                 return <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{offers.id}</td>
                     <td>{offers.title}</td>
-                    <td>{offers.category}</td>
                     <td>{offers.description}</td>
-                    {/*<td>{offers.product.name}</td>*/}
-                    {/*<td>{offers.product.condition}</td>*/}
-                    {/*<td>{tags[0]}</td>*/}
+                    <td>{offers.product && offers.product.name}</td>
+                    <td>{offers.product && offers.product.condition}</td>
+                    <td>{offers.tags + ''}</td>
                     <td>
                         <ButtonGroupAction data={this.props.data} id={offers.id} type="offers"/>
                     </td>
                 </tr>
+
             })}
             </tbody>
         </Table>
