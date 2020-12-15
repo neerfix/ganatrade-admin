@@ -7,7 +7,7 @@ import getToken from "../../../functions/getToken";
 import Switch from "./Switch";
 const token = getToken();
 
-export default class Tasks extends Component {
+export default class Trades extends Component {
 
     constructor(props) {
         super(props);
@@ -50,9 +50,9 @@ export default class Tasks extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let id = this.props.id;
-        let route = routeAPI + 'tasks/';
+        let route = routeAPI + 'trades/';
         if(id){
-            route = routeAPI + 'tasks/' + id
+            route = routeAPI + 'trades/' + id
         }
         fetch( route, {
             method: this.state[this.props.action],
@@ -78,7 +78,7 @@ export default class Tasks extends Component {
             })
             .catch(e => {
                 this.setState({
-                    toastMessage: 'An error occurred while creating the task: ' + e.message,
+                    toastMessage: 'An error occurred while creating the trade: ' + e.message,
                     toastType: 'error'
                 });
             });

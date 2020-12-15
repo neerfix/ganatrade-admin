@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Tasks from "../views/Lists/Tasks";
+import Trades from "../views/Lists/Trades";
 import {pushRoute} from "../../redux/actions/PushRoute.action";
 
 const mapDispatchToProps = {
@@ -13,5 +13,5 @@ const mapStateToProps = state =>
         userSession: state.userSession
     });
 
-const Container = connect(mapStateToProps, mapDispatchToProps)(Tasks);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Trades);
 export default Container;

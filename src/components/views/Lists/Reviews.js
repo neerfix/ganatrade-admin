@@ -29,7 +29,6 @@ class Reviews extends Component {
     }
 
     render() {
-        console.log(this.state)
         return (
             <div>
                 <Table striped bordered hover variant="dark" >
@@ -44,7 +43,6 @@ class Reviews extends Component {
                         <th>Actions</th>
                     </tr>
                     </thead>
-                    <h1>PANCAKE</h1>
                     <tbody>
                     {this.state.data.slice(this.props.startRange, this.props.endRange).map( (review, index) => {
                         console.log(review);
