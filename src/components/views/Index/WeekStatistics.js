@@ -54,8 +54,8 @@ class WeekStatistics extends Component {
     }
 
     filterData = (collection, field, i, week) => {
-        return this.state[collection].filter(data => (data.date[field] ? (data.date[field]._seconds <= week[i].end) : 0))
-            .filter(data => (data.date[field]._seconds >= week[i].start))
+        return this.state[collection].filter(data => (data.field ? (data.field._seconds <= week[i].end) : 0))
+            .filter(data => (data.field._seconds >= week[i].start))
     };
 
     getStats = () =>{
@@ -80,10 +80,15 @@ class WeekStatistics extends Component {
             const newTasksByDay = this.filterData("tasks", "date_created", i, week);
             const newListsByDay = this.filterData("lists", "date_created", i, week);
 
+            // eslint-disable-next-line
             this.state.weekStats[i].activeUsers = activeUsersByDay.length;
+            // eslint-disable-next-line
             this.state.weekStats[i].newUsers = newUsersByDay.length;
+            // eslint-disable-next-line
             this.state.weekStats[i].newTasks = newTasksByDay.length;
+            // eslint-disable-next-line
             this.state.weekStats[i].newLists = newListsByDay.length;
+            // eslint-disable-next-line
             this.state.weekStats[i].tasksDone = tasksDoneByDay.length;
         }
 

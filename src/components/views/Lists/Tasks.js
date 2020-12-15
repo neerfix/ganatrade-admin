@@ -60,6 +60,7 @@ class Tasks extends Component {
                                             <Loading/>
                                         )
                                         :
+                                        // eslint-disable-next-line
                                         this.state.lists.map((list, index) => {
                                             if (list.id === task.list) return (
                                                 <span key={index}>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ButtonGroup, Table} from "react-bootstrap";
+import {Table} from "react-bootstrap";
 import Gravatar from 'react-gravatar';
 import ButtonGroupAction from "./ButtonGroupAction";
 import {Link} from "react-router-dom";

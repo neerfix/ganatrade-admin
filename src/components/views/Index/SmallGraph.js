@@ -36,7 +36,7 @@ class SmallGraph extends Component {
 
     render(){
         return(
-            <Card className={'d-flex flex-row smallGraph' + " "+this.props.type}>
+            <Card className={'d-flex flex-row smallGraph '+this.props.type}>
                 <div className={'flex-column'}>
                     <Card.Subtitle>{this.props.title}</Card.Subtitle>
                     <h5>{this.totalData()}</h5>

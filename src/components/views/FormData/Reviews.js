@@ -2,13 +2,8 @@ import React, {Component} from "react";
 import {Form} from "react-bootstrap";
 import routeAPI from "../../../tools/routeAPI";
 import FieldText from "./FieldText";
-import NationalitySelect from "./NationalitySelect";
-import GenderRadioButton from "./GenderRadioButton";
 import FooterForm from "./FooterForm";
 import getToken from "../../../functions/getToken";
-import Switch from "./Switch";
-import admin from "firebase-admin";
-import SelectableContext from "react-bootstrap/cjs/SelectableContext";
 const token = getToken();
 
 export default class Users extends Component {

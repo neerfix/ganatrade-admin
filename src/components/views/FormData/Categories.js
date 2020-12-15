@@ -3,8 +3,8 @@ import {Form} from "react-bootstrap";
 import routeAPI from "../../../tools/routeAPI";
 import FieldText from "./FieldText";
 import FooterForm from "./FooterForm";
-import getToken from "../../../functions/getToken";
-const token = getToken();
+// import getToken from "../../../functions/getToken";
+// const token = getToken();
 
 export default class Categories extends Component {
 

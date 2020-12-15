@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import {Col, Form, Row} from "react-bootstrap";
-import {country} from '../../../tools/Nationalities';
+import {Col, Form} from "react-bootstrap";
 
 export default class NationalitySelect extends Component {
 

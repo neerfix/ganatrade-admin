@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Nav, Navbar} from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBell, faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons';
-import {faFly} from '@fortawesome/free-brands-svg-icons';
 import {Link} from "react-router-dom";
 import Gravatar from 'react-gravatar';
 import Dropdown from "./Dropdown";

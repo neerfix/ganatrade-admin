@@ -58,15 +58,18 @@ class Lists extends Component {
                                             <Loading/>
                                         )
                                         :
+                                        // eslint-disable-next-line
                                         this.state.users.map((user, index) => {
                                             if (user.uid === lists.user) return (
                                                 <span key={index}>
                                                        <Gravatar email={user.email}
-                                                                 title={user.name.firstname + ' ' + user.name.lastname + ' ' + "(" + user.name.username + ")"}
+                                                                // eslint-disable-next-line
+                                                                 title={user.firstname + ' ' + user.lastname + ' ' + "(" + user.username + ")"}
                                                                  size={35}
                                                                  className="rounded-circle"
                                                        />&nbsp;
-                                                    {user.name.firstname + ' ' + user.name.lastname + ' ' + "(" + user.name.username + ")"}
+                                                    {// eslint-disable-next-line
+                                                        user.firstname + ' ' + user.lastname + ' ' + "(" + user.username + ")"}
                                                     </span>
                                             )
                                         })

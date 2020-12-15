@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {ListGroup} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
-import {faUser, faFolder, faFlag, faClipboardList, faClipboard, faTachometerAlt} from "@fortawesome/free-solid-svg-icons";
+import {faUser, faFolder, faFlag, faClipboard, faTachometerAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ListGroupItem from './ListGroupItem';
 

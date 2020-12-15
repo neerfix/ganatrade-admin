@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import routeAPI from "../../../tools/routeAPI";
 import Users from "../../containers/Users";
 import Tasks from "../../containers/Tasks";
+import Reviews from "../../containers/Reviews";
 import Pagination from "react-pagination-bootstrap";
 import Categories from "./Categories";
 import Lists from "./Lists";
@@ -67,6 +68,7 @@ export default class ListData extends Component {
             users: <Users data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
             tasks: <Tasks data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
             categories: <Categories data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
+            reviews: <Reviews data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
             lists: <Lists data={this.state.data} startRange={this.state.startRange} endRange={this.state.endRange}/>,
         };
 
