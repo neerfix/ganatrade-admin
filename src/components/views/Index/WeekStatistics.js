@@ -48,8 +48,6 @@ class WeekStatistics extends Component {
     }
 
     filterData = (collection, field, i, week) => {
-
-        console.log(this.state[collection].filter(data => (data[field] ? data[field]._seconds : "")))
         return this.state[collection].filter(data => (data[field] ? (data[field]._seconds <= week[i].end) : 0))
             .filter(data => (data[field]._seconds >= week[i].start))
     };
