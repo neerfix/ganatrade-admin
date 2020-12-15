@@ -4,7 +4,7 @@ import SmallGraph from "./SmallGraph";
 import ComparisonTasksWeek from './ComparisonTasksWeek';
 import routeAPI from "../../../tools/routeAPI";
 import Loading from "../modules/Loading";
-import GenderStatistics from "./GenderStatistics";
+// import GenderStatistics from "./GenderStatistics";
 import getToken from "../../../functions/getToken";
 const token = getToken();
 
@@ -21,41 +21,35 @@ class WeekStatistics extends Component {
             weekStats: [{"name": "Monday"}, {"name": "Tuesday"}, {"name": "Wednesday"}, {"name": "Thursday"}, {"name": "Friday"}, {"name": "Saturday"}, {"name": "Sunday"}],
             weekTimestamp: "",
             users: [],
-            tasks: [],
-            lists: [],
+            offers: []
         };
     }
 
     async componentDidMount() {
         await fetch(routeAPI + 'users/', {
-            headers: { 'Authorization': this.state.tokenACP},
+            // headers: { 'Authorization': this.state.tokenACP},
         }).then(response => response.json())
             .then(json => {
                 if(json){
                     this.setState({ nbUsers: json.length, users: json});
                 }
             });
-        await fetch(routeAPI + 'tasks/', {
-            headers: { 'Authorization': this.state.tokenACP },
+        await fetch(routeAPI + 'offers/', {
+            // headers: { 'Authorization': this.state.tokenACP },
         }).then(response => response.json())
             .then(json => {
                 if(json){
-                    this.setState({ tasks: json });
-                }
-            });
-        await fetch(routeAPI + 'lists/', {
-            headers: { 'Authorization': this.state.tokenACP },
-        }).then(response => response.json())
-            .then(json => {
-                if(json){
-                    this.setState({ lists: json, apiLoaded: true });
+                    this.setState({
+                        offers: json,
+                        apiLoaded: true
+                    });
                 }
             });
     }
 
     filterData = (collection, field, i, week) => {
-        return this.state[collection].filter(data => (data.field ? (data.field._seconds <= week[i].end) : 0))
-            .filter(data => (data.field._seconds >= week[i].start))
+        return this.state[collection].filter(data => (data[field] ? (data[field]._seconds <= week[i].end) : 0))
+            .filter(data => (data[field]._seconds >= week[i].start))
     };
 
     getStats = () =>{
@@ -74,22 +68,15 @@ class WeekStatistics extends Component {
         for(let i=0; i<=6; i++){
 
             const activeUsersByDay = this.filterData("users", "last_login", i, week);
-            const newUsersByDay = this.filterData("users", "date_created", i, week);
-            const tasksDoneByDay = this.state['tasks'].filter(data => (data.date_done ? (data.date_done._seconds <= week[i].end) : 0))
-                .filter(data => (data.date_done._seconds >= week[i].start));
-            const newTasksByDay = this.filterData("tasks", "date_created", i, week);
-            const newListsByDay = this.filterData("lists", "date_created", i, week);
+            const newUsersByDay = this.filterData("users", "created_at", i, week);
+            const newOffersByDay = this.filterData("offers", "created_at", i, week);
 
             // eslint-disable-next-line
             this.state.weekStats[i].activeUsers = activeUsersByDay.length;
             // eslint-disable-next-line
             this.state.weekStats[i].newUsers = newUsersByDay.length;
             // eslint-disable-next-line
-            this.state.weekStats[i].newTasks = newTasksByDay.length;
-            // eslint-disable-next-line
-            this.state.weekStats[i].newLists = newListsByDay.length;
-            // eslint-disable-next-line
-            this.state.weekStats[i].tasksDone = tasksDoneByDay.length;
+            this.state.weekStats[i].newOffers = newOffersByDay.length;
         }
 
         const resultGender = this.state.users.filter(user => user.gender === 'm');
@@ -104,7 +91,6 @@ class WeekStatistics extends Component {
         if(this.state.apiLoaded){
             if(!this.state.isLoaded){ this.getStats()}
         }
-        console.log(this.state.weekStats[0].activeUsers);
         return(
             <Card className={"mt-3"}>
                 <Card.Header>Trafic this week</Card.Header>
@@ -114,16 +100,15 @@ class WeekStatistics extends Component {
                         <div className="d-flex flex-row justify-content-between">
                             <SmallGraph title={'New users'} type={'newUsers'} stats={this.state.weekStats}/>
                             <SmallGraph title={'Active users'} type={'activeUsers'} stats={this.state.weekStats}/>
-                            <SmallGraph title={'List created'} type={'newLists'} stats={this.state.weekStats}/>
-                            <SmallGraph title={'Task created'} type={'newTasks'} stats={this.state.weekStats}/>
+                            <SmallGraph title={'Offers created'} type={'newOffers'} stats={this.state.weekStats}/>
                         </div>
                     ): <Loading/>}
                     <hr/>
                     <div className="d-flex flex-row">
                         <div className="d-flex flex-column w-50">
-                            <ComparisonTasksWeek stats={this.state.weekStats} statsGlobalUsers={this.state.users} statsGlobalTasks={this.state.tasks}/>
+                            <ComparisonTasksWeek stats={this.state.weekStats} statsGlobalUsers={this.state.users} statsGlobalOffers={this.state.offers}/>
                         </div>
-                        {this.state.nbUsers ? ( <GenderStatistics nbUsers={this.state.nbUsers} nbMale={this.state.nbMale}/>) : (<Loading />)}
+                        {/*{this.state.nbUsers ? ( <GenderStatistics nbUsers={this.state.nbUsers} nbMale={this.state.nbMale}/>) : (<Loading />)}*/}
                     </div>
                 </Card.Body>
             </Card>

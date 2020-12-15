@@ -18,23 +18,28 @@ class ComparisonTasksWeek extends Component {
                         <span>{day.name}</span>
                         <span>
                             <Badge variant={"primary"}>
-                                +{Math.trunc((100*(this.props.statsGlobalUsers.length + day.activeUsers)) / this.props.statsGlobalUsers.length)-100}% (+{day.activeUsers})
+                                +{Math.trunc((100*(this.props.statsGlobalUsers.length + day.newUsers)) / this.props.statsGlobalUsers.length)-100}% (+{day.newUsers})
                             </Badge>
                             &nbsp;
                             <Badge variant={"danger"}>
-                                +{Math.trunc((100*(this.props.statsGlobalTasks.length + day.tasksDone)) / this.props.statsGlobalTasks.length)-100}% (+{day.tasksDone})
+                                +{Math.trunc((100*(this.props.statsGlobalUsers.length + day.activeUsers)) / this.props.statsGlobalUsers.length)-100}% (+{day.activeUsers})
+                            </Badge>
+                            &nbsp;
+                            <Badge variant={"warning"}>
+                                +{Math.trunc((100*(this.props.statsGlobalOffers.length + day.newOffers)) / this.props.statsGlobalOffers.length)-100}% (+{day.newOffers})
                             </Badge>
                         </span>
                     </Card.Subtitle>
-                    <ProgressBar now={Math.trunc((100*(this.props.statsGlobalUsers.length + day.activeUsers)) / this.props.statsGlobalUsers.length)-100}  variant="primary"/>
-                    <ProgressBar now={Math.trunc((100*(this.props.statsGlobalTasks.length + day.tasksDone)) / this.props.statsGlobalTasks.length)-100} variant="danger"/>
+                    <ProgressBar now={Math.trunc((100*(this.props.statsGlobalUsers.length + day.newUsers)) / this.props.statsGlobalUsers.length)-100}  variant="primary"/>
+                    <ProgressBar now={Math.trunc((100*(this.props.statsGlobalUsers.length + day.activeUsers)) / this.props.statsGlobalUsers.length)-100} variant="danger"/>
+                    <ProgressBar now={Math.trunc((100*(this.props.statsGlobalOffers.length + day.newOffers)) / this.props.statsGlobalOffers.length)-100} variant="warning"/>
                 </div>)}
             <Badge variant={"primary"}>
                 User Active
             </Badge>
             &nbsp;
             <Badge variant={"danger"}>
-                Tasks Done
+                Offers Created
             </Badge>
         </div>
     }

@@ -25,7 +25,7 @@ class SmallGraph extends Component {
               return "#63c2de";
           case "activeUsers":
               return "#f86c6b";
-          case "newLists":
+          case "newOffers":
               return "#ffc107";
           case "newTasks":
               return "#4dbd74";
