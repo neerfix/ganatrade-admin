@@ -8,12 +8,12 @@ import Loading from "../modules/Loading";
 import getToken from "../../../functions/getToken";
 const token = getToken();
 
-class Tasks extends Component {
+class Trades extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            page: "tasks",
+            page: "trades",
             tokenACP: token,
             isLoading: false,
             apiLoaded: false,
@@ -23,12 +23,13 @@ class Tasks extends Component {
     }
 
     async componentDidMount() {
-        await fetch(routeAPI + 'lists/', {
-            headers: { 'Authorization': this.state.tokenACP },
+        await fetch(routeAPI + this.state.dataType+'/', {
+            method: "GET"
+            // headers: { 'Authorization': this.state.tokenACP },
         }).then(response => response.json())
             .then(json => {
                 if(json){
-                    this.setState({ lists: json, apiLoaded: true });
+                    this.setState({ data: json, apiLoaded: true });
                 }
             });
     }
@@ -49,11 +50,11 @@ class Tasks extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.data.slice(this.props.startRange, this.props.endRange).map( (task, index) => {
+                    {this.state.data.slice(this.props.startRange, this.props.endRange).map( (trade, index) => {
                             return <tr key={index}>
                                 <td>{index + 1}</td>
-                                <td>{task.id}</td>
-                                <td>{task.name}</td>
+                                <td>{trade.id}</td>
+                                <td>{trade.name}</td>
                                 <td>
                                     {!this.state.apiLoaded ?
                                         (
@@ -62,7 +63,7 @@ class Tasks extends Component {
                                         :
                                         // eslint-disable-next-line
                                         this.state.lists.map((list, index) => {
-                                            if (list.id === task.list) return (
+                                            if (list.id === trade.list) return (
                                                 <span key={index}>
                                                     {list.title}
                                                     </span>
@@ -70,7 +71,7 @@ class Tasks extends Component {
                                         })
                                     }</td>
                                 <td>
-                                    {(task.is_private) ? (
+                                    {(trade.is_private) ? (
                                         <Button variant={"success"}><FontAwesomeIcon
                                             icon={faCheck}/></Button>
                                     ) : (
@@ -78,7 +79,7 @@ class Tasks extends Component {
                                     )}
                                 </td>
                                 <td>
-                                    {(task.is_done) ? (
+                                    {(trade.is_done) ? (
                                         <Button variant={"success"}><FontAwesomeIcon
                                             icon={faCheck}/></Button>
                                     ) : (
@@ -86,7 +87,7 @@ class Tasks extends Component {
                                     )}
                                 </td>
                                 <td>
-                                    <ButtonGroupAction data={this.props.data} id={task.id} type="tasks"/>
+                                    <ButtonGroupAction data={this.props.data} id={trade.id} type="trades"/>
                                 </td>
                             </tr>
                         })}
@@ -96,4 +97,4 @@ class Tasks extends Component {
         )
     }
 }
-export default (Tasks);
+export default (Trades);

@@ -18,6 +18,7 @@ const App = ({history}) => {
                 <Route exact path="/" component={Index}/>
                 <Route exact path="/list/users" component={ListData}/>
                 <Route exact path="/list/categories" component={ListData}/>
+                <Route exact path="/list/offers" component={ListData}/>
                 <Route exact path="/list/users/:userId/reviews" component={ListData}/>
                 <Route exact path="/list/tasks" component={ListData}/>
                 <Route exact path="/list/lists" component={ListData}/>
