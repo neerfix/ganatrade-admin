@@ -14,7 +14,7 @@ export default class Users extends Component {
             tokenACP: token,
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             data: {"firstname": "", "lastname": "", "username": "", "email": "", "delete_profile": false, "password": "", "rank": ""},
             deactivate: false,
         };
@@ -64,7 +64,8 @@ export default class Users extends Component {
                     firstname: this.state.firstname,
                     lastname: this.state.lastname,
                     username: this.state.username,
-                    rank: this.state.rank
+                    rank: this.state.rank,
+                    birthdate: this.state.birthdate,
                 })
             })
                 .then(r => {
@@ -119,6 +120,7 @@ export default class Users extends Component {
                 <FieldText defaultValue={this.state.data.firstname} title={"First name"} name={"firstname"} id={"firstname"} placeholder={"John"} type={'text'} handleChange={this.handleChange}/>
                 <FieldText defaultValue={this.state.data.lastname} title={"Last name"} name={"lastname"} id={"lastname"} placeholder={"Doe"} type={'text'} handleChange={this.handleChange}/>
                 <FieldText defaultValue={this.state.data.username} title={"Username"} name={"username"} id={"username"} placeholder={"JohnDoe"} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.birthdate} title={"Birth date"} name={"birthdate"} id={"birthdate"} placeholder={"30/08/1999"} type={'date'} handleChange={this.handleChange}/>
             </Form.Row>
 
 

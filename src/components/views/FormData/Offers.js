@@ -14,10 +14,10 @@ export default class Offers extends Component {
             tokenACP: "",
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             toastMessage: "",
             toastType: "",
-            data: {"title": "", "category": "", "description": "", "product": "", "tags": "",}
+            data: {"title": "", "category": "", "description": "", "product": "", "tags": ""}
         };
     }
 
@@ -34,6 +34,8 @@ export default class Offers extends Component {
                             title: json.title,
                             description: json.description,
                             product: json.product,
+                            name: json.product.name,
+                            condition: json.product.condition,
                             tags: json.tags,
                         });
                     }
@@ -97,13 +99,13 @@ export default class Offers extends Component {
     render() {
         return <Form onSubmit={this.handleSubmit}>
             <Form.Row>
-                <FieldText defaultValue={this.state.data.title} title={"Title"} name={"title"} id={"title"} placeholder={"Travel"} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.title} title={"Title"} name={"title"} id={"title"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.description} title={"Description"} name={"Description"} id={"Description"} placeholder={""} type={'textarea'}  rows="3" handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.product.name} title={"Product Name"} name={"Product Name"} id={"Product Name"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.product.condition} title={"Product Condition"} name={"Product Condition"} id={"Product Condition"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.tags} title={"Tags"} name={"Tags"} id={"Tags"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
             </Form.Row>
 
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Description</Form.Label>
-                <Form.Control defaultValue={this.state.data.description} name="description" as="textarea" rows="3" onChange={this.handleChange}/>
-            </Form.Group>
 
             <FooterForm showT={this.props.showT} toastMessage={this.state.toastMessage} toastType={this.state.toastType}/>
         </Form>;

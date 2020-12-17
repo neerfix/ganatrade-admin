@@ -14,7 +14,7 @@ export default class Users extends Component {
             tokenACP: token,
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             data: { authorId: "", content: "", createdAt: "", note: ""},
             deactivate: false,
         };

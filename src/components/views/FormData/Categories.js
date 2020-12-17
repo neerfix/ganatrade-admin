@@ -14,7 +14,7 @@ export default class Categories extends Component {
             tokenACP: "",
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             toastMessage: "",
             toastType: "",
             data: {"title": "", "description": "",}
