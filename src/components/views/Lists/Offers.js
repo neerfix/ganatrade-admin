@@ -37,7 +37,7 @@ export default class Offers extends Component {
                 return <tr key={index}>
                     <td>{index+1}</td>
                     <td>
-                        <Link to={'/list/users/' + offers.id + '/trades'}>
+                        <Link to={'/list/offers/' + offers.id + '/trades'}>
                             <button className={"btn-success btn-sm"}> View trades </button>
                         </Link>
                     </td>

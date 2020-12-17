@@ -12,7 +12,7 @@ import Categories from "./Categories";
 import Lists from "./Lists";
 import Loading from "../modules/Loading";
 import getToken from "../../../functions/getToken";
-import Trades from "../FormData/Trades";
+import Trades from "../../containers/Trades";
 const token = getToken();
 
 export default class ListData extends Component {
