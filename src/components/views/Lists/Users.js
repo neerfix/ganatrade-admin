@@ -26,7 +26,6 @@ class Index extends Component {
                         <th>#</th>
                         <th>ID</th>
                         <th>Reviews</th>
-                        <th>Trades</th>
                         <th>Rank</th>
                         <th>Display Name</th>
                         <th>Email</th>
@@ -43,11 +42,6 @@ class Index extends Component {
                                     <td>
                                         <Link to={'/list/users/' + user.id + '/reviews'}>
                                         <button className={"btn-success btn-sm"}> View reviews </button>
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <Link to={'/list/users/' + user.id + '/trades'}>
-                                            <button className={"btn-success btn-sm"}> View trades </button>
                                         </Link>
                                     </td>
                                     <td>{user.rank}</td>
