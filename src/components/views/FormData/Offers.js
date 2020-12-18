@@ -17,7 +17,16 @@ export default class Offers extends Component {
             edit: "PATCH",
             toastMessage: "",
             toastType: "",
-            data: {"title": "", "category": "", "description": "", "product": "", "tags": ""}
+            data: {"title": "", "category": "", "user_id": "", "description": "",
+                "product": {
+                            "name": "",
+                            "condition": "",
+                            },
+                "trade": {
+                    "method": "",
+                },
+             },
+
         };
     }
 
@@ -32,11 +41,16 @@ export default class Offers extends Component {
                             data: json,
                             apiLoaded: true,
                             title: json.title,
+                            user_id: json.user_id,
                             description: json.description,
-                            product: json.product,
-                            name: json.product.name,
-                            condition: json.product.condition,
-                            tags: json.tags,
+                            product: {
+                                name: json.name,
+                                condition: json.condition,
+                            },
+                            category: json.category,
+                            trade: {
+                                method: json.method,
+                            }
                         });
                     }
                 }).catch(e => {
@@ -63,7 +77,16 @@ export default class Offers extends Component {
             },
             body: JSON.stringify({
                 title: this.state.title,
-                description: this.state.description
+                description: this.state.description,
+                user_id: this.state.user_id,
+                product: {
+                    name: this.state.name,
+                    condition: this.state.condition,
+                },
+                category: this.state.category,
+                trade: {
+                    method: this.state.method,
+                }
             })
         })
             .then(r => {
@@ -101,9 +124,11 @@ export default class Offers extends Component {
             <Form.Row>
                 <FieldText defaultValue={this.state.data.title} title={"Title"} name={"title"} id={"title"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
                 <FieldText defaultValue={this.state.data.description} title={"Description"} name={"Description"} id={"Description"} placeholder={""} type={'textarea'}  rows="3" handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.product.name} title={"Product Name"} name={"Product Name"} id={"Product Name"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.product.condition} title={"Product Condition"} name={"Product Condition"} id={"Product Condition"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.tags} title={"Tags"} name={"Tags"} id={"Tags"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.user_id} title={"user_id"} name={"user_id"} id={"user_id"} placeholder={""} type={'textarea'}  rows="3" handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.product.name} title={"Product Name"} name={"name"} id={"Product Name"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.product.condition} title={"Product Condition"} name={"condition"} id={"Product Condition"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.category} title={"category"} name={"category"} id={"category"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.trade.method} title={"method"} name={"method"} id={"method"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
             </Form.Row>
 
 

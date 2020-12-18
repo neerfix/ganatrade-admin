@@ -3,19 +3,19 @@ import {Form} from "react-bootstrap";
 import routeAPI from "../../../tools/routeAPI";
 import FieldText from "./FieldText";
 import FooterForm from "./FooterForm";
-import getToken from "../../../functions/getToken";
-const token = getToken();
+// import getToken from "../../../functions/getToken";
+// const token = getToken();
 
 export default class Users extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            tokenACP: token,
+            tokenACP: "",
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PATCH",
-            data: {"firstname": "", "lastname": "", "username": "", "email": "", "delete_profile": false, "password": "", "rank": ""},
+            edit: "PUT",
+            data: {"email": "", "password": "", "firstname": "", "lastname": "", "username": "",  "rank": ""},
             deactivate: false,
         };
     }
@@ -28,8 +28,9 @@ export default class Users extends Component {
                 .then(json => {
                     if(json){
                         this.setState({
-                            apiLoaded: true,
+                            data: json,
                             email: json.email,
+                            password: json.password,
                             firstname: json.firstname,
                             lastname: json.lastname,
                             username: json.username,
@@ -50,8 +51,7 @@ export default class Users extends Component {
         if (id) {
             route = routeAPI + 'users/' + id
         }
-        try {
-            await fetch(route, {
+        fetch(route, {
                 method: this.state[this.props.action],
                 headers: {
                     'Authorization': this.state.tokenACP,
@@ -65,35 +65,29 @@ export default class Users extends Component {
                     lastname: this.state.lastname,
                     username: this.state.username,
                     rank: this.state.rank,
-                    birthdate: this.state.birthdate,
                 })
             })
-                .then(r => {
-                    console.log(r)
-                    if (r.ok) {
-                        this.setState({
-                            toastMessage: 'The action was successfully completed',
-                            toastType: 'success'
-                        })
-                    } else {
-                        this.setState({
-                            toastMessage: 'An error occurred while creating the user: ' + e.message,
-                            toastType: 'error'
-                        });
-                    }
+            .then(r => {
+                if(r.ok){
+                    this.setState({
+                        toastMessage: 'The action was successfully completed',
+                        toastType: 'success'
+                    })
+                }else{
+                    this.setState({
+                        toastMessage: 'An error occurred while creating the user: ' + r.statusText,
+                        toastType: 'error'
+                    });
+                }
+            })
+            .catch(e => {
+                this.setState({
+                    toastMessage: 'An error occurred while creating the user: ' + e.message,
+                    toastType: 'error'
                 });
-            this.props.showToasts();
-            this.props.delayToHide();
-        } catch (e) {
-            console.log(e)
-            this.setState({
-                toastMessage: 'An error occurred while creating the user: ' + e.message,
-                toastType: 'error'
             });
-            this.props.showToasts();
-            this.props.delayToHide();
-        }
-
+        this.props.showToasts();
+        this.props.delayToHide();
     };
 
     handleChange = (e) => {
@@ -112,15 +106,14 @@ export default class Users extends Component {
     render() {
         return <Form onSubmit={this.handleSubmit}>
             <Form.Row>
-                <FieldText defaultValue={this.state.data.email} title={"Email"} name={"email"} id={"email"} placeholder={"john.doe@example.com"} type={'email'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.password} title={"Password"} name={"password"} id={"password"} placeholder={"*******"} type={'password'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.email} title={"Email"} name={"email"} id={"email"} placeholder={""} type={'email'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.password} title={"Password"} name={"password"} id={"password"} placeholder={""} type={'password'} handleChange={this.handleChange}/>
             </Form.Row>
 
             <Form.Row>
-                <FieldText defaultValue={this.state.data.firstname} title={"First name"} name={"firstname"} id={"firstname"} placeholder={"John"} type={'text'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.lastname} title={"Last name"} name={"lastname"} id={"lastname"} placeholder={"Doe"} type={'text'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.username} title={"Username"} name={"username"} id={"username"} placeholder={"JohnDoe"} type={'text'} handleChange={this.handleChange}/>
-                <FieldText defaultValue={this.state.data.birthdate} title={"Birth date"} name={"birthdate"} id={"birthdate"} placeholder={"30/08/1999"} type={'date'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.firstname} title={"First name"} name={"firstname"} id={"firstname"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.lastname} title={"Last name"} name={"lastname"} id={"lastname"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
+                <FieldText defaultValue={this.state.data.username} title={"Username"} name={"username"} id={"username"} placeholder={""} type={'text'} handleChange={this.handleChange}/>
             </Form.Row>
 
 
