@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Table} from "react-bootstrap";
-import routeAPI from "../../../tools/routeAPI";
 
 class Reviews extends Component {
 

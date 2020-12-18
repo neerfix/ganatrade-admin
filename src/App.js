@@ -14,8 +14,8 @@ const App = ({history}) => {
         return (
             <ConnectedRouter history={history}>
                 <Route path="/" component={Header}/>
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/" component={Index}/>
+                <Route exact path="/" component={Login}/>
+                <Route exact path="/dashboard" component={Index}/>
                 <Route exact path="/list/users" component={ListData}/>
                 <Route exact path="/list/categories" component={ListData}/>
                 <Route exact path="/list/offers" component={ListData}/>

@@ -14,7 +14,7 @@ export const onLogin = (login, password) => dispatch => {
                         if(json){
                             if(json.rank){
                                 if( json.rank === "admin" || json.rank === "super_admin")
-                                history.push('/');
+                                history.push('/dashboard');
                                 dispatch({ payload: json, type: C.SUCCESS_LOGIN });
                             }else{
                                 console.log("Tu n'as pas accès à l'administration");
