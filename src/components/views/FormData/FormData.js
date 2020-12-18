@@ -5,6 +5,7 @@ import Lists from "./Lists";
 import Trades from "./Trades";
 import Categories from "./Categories";
 import getToken from "../../../functions/getToken";
+import Offers from "./Offers";
 const token = getToken();
 
 export default class FormData extends Component {
@@ -28,6 +29,7 @@ export default class FormData extends Component {
         const listData = {
             users: <Users id={this.state.id} action={this.state.action} dataType={this.state.dataType} showToasts={this.showToasts} delayToHide={this.delayToHide} showT={this.state.showToast}/>,
             tasks: <Trades id={this.state.id} action={this.state.action} dataType={this.state.dataType} showToasts={this.showToasts} delayToHide={this.delayToHide} showT={this.state.showToast}/>,
+            offers: <Offers id={this.state.id} action={this.state.action} dataType={this.state.dataType} showToasts={this.showToasts} delayToHide={this.delayToHide} showT={this.state.showToast}/>,
             lists: <Lists id={this.state.id} action={this.state.action} dataType={this.state.dataType} showToasts={this.showToasts} delayToHide={this.delayToHide} showT={this.state.showToast}/>,
             categories: <Categories id={this.state.id} action={this.state.action} dataType={this.state.dataType} showToasts={this.showToasts} delayToHide={this.delayToHide} showT={this.state.showToast}/>,
         };

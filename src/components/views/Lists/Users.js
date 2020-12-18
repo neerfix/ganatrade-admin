@@ -51,7 +51,7 @@ class Index extends Component {
                                     <td>{user.email}</td>
                                     <td>{user.username}</td>
                                     <td>
-                                        <ButtonGroupAction data={this.props.data} id={user.uid} type="users"/>
+                                        <ButtonGroupAction data={this.props.data} id={user.id} type="users"/>
                                     </td>
                                 </tr>
                             )

@@ -15,7 +15,7 @@ export default class Trades extends Component {
             tokenACP: token,
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             data: {"name": "", "description": "", "list": "", "is_done": false, "is_private": false},
             is_done: false,
             is_private: false,
