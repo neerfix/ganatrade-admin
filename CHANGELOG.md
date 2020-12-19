@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/Ganatrade/admin/compare/v1.1.1...v2.0.0) (2020-12-19)
+
+
+### Features
+
+* login and fix back return faille ([1b6d933](https://github.com/Ganatrade/admin/commit/1b6d933a318201753d30ebc31a625c860c56f72c))
+* reviews ([f0f54ae](https://github.com/Ganatrade/admin/commit/f0f54ae6d0414190807fea6957e39a63f9367bce))
+
+
+### Bug Fixes
+
+* fix auto-deploy??????? 🌝 ([f6e13d4](https://github.com/Ganatrade/admin/commit/f6e13d4c33361d324f75ed3b4df3d5c5aef1b4eb))
+* remove warning ([8e61d16](https://github.com/Ganatrade/admin/commit/8e61d160cd744bd8b05ee05f5f8ec2409562fc39))
+* remove warning ([6d30ba1](https://github.com/Ganatrade/admin/commit/6d30ba1bc874925c931c2f696f57bb6d8b98eea1))
+
 ### [1.1.1](https://github.com/Ganatrade/admin/compare/v1.1.0...v1.1.1) (2020-12-15)
 
 ## 1.1.0 (2020-12-15)
