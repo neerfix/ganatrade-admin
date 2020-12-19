@@ -14,7 +14,7 @@ export default class Users extends Component {
             tokenACP: "",
             dataType: this.props.dataType,
             create: "POST",
-            edit: "PUT",
+            edit: "PATCH",
             data: {"email": "", "password": "", "firstname": "", "lastname": "", "username": "",  "rank": ""},
             deactivate: false,
         };
@@ -29,6 +29,7 @@ export default class Users extends Component {
                     if(json){
                         this.setState({
                             data: json,
+                            apiLoaded: true,
                             email: json.email,
                             password: json.password,
                             firstname: json.firstname,
@@ -92,15 +93,9 @@ export default class Users extends Component {
 
     handleChange = (e) => {
         e.preventDefault();
-        if(e.target.type === "checkbox"){
-            this.setState({
-                [e.target.name]: e.target.checked
-            });
-        }else{
             this.setState({
                 [e.target.name]: e.target.value
             });
-        }
     };
 
     render() {
