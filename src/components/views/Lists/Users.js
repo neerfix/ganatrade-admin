@@ -27,6 +27,7 @@ class Index extends Component {
                         <th>ID</th>
                         <th>Reviews</th>
                         <th>Rank</th>
+                        <th>Avatar</th>
                         <th>Display Name</th>
                         <th>Email</th>
                         <th>Username</th>
@@ -46,8 +47,14 @@ class Index extends Component {
                                     </td>
                                     <td>{user.rank}</td>
                                     <td>
-                                        <Gravatar email={user.email} size={35} className="rounded-circle"/>&nbsp;
-                                        {user.firstname} {user.lastname}</td>
+                                        {(user.avatar) === "" ? (
+                                            <Gravatar email={user.email} size={35} className="rounded-circle"/>) :
+                                            (<img src={user.avatar} width={"50px"} height={"50px"}/>)
+                                        }
+                                    </td>
+                                    <td>
+                                        {user.firstname} {user.lastname}
+                                    </td>
                                     <td>{user.email}</td>
                                     <td>{user.username}</td>
                                     <td>
