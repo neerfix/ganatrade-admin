@@ -49,7 +49,7 @@ class Index extends Component {
                                     <td>
                                         {(user.avatar) === "" ? (
                                             <Gravatar email={user.email} size={35} className="rounded-circle"/>) :
-                                            (<img src={user.avatar} width={"50px"} height={"50px"}/>)
+                                            (<img src={user.avatar} width={"50px"} height={"50px"} alt={"avatar"}/>)
                                         }
                                     </td>
                                     <td>
