@@ -14,7 +14,7 @@
     "browserify-fs": "^1.0.0",
     "connected-react-router": "^6.8.0",
     "firebase": "^7.24.0",
-    "firebase-admin": "^8.13.0",
+    "firebase-admin": "^9.4.2",
     "history": "^4.10.1",
     "http2": "^3.3.7",
     "jquery": "^3.5.1",
